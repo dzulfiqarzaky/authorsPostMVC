@@ -1,0 +1,30 @@
+<%- include('header') -%>
+
+<div class="container mt-5">
+    <a href="/authors"><button type="button" class="btn btn-primary">Back to Authors</button></a>
+    
+    <table class="table mt-5">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Author</th>
+            <th scope="col">Total Post</th>
+            <th scope="col">Total Vote</th>
+            <th scope="col">Average Estimated Time</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% authorsDetail.forEach(author =>{%>
+                <tr>
+                  <th scope="row"><%= author.id %></th>
+                  <td><%= author.formatName %></td>
+                  <td><%= author.totalPost %></td>
+                  <td><%= author.totalVote %></td>
+                  <td><%= author.averageTime %></td>
+                </tr>
+           <% }) %>
+        </tbody>
+      </table>
+</div>
+
+<%- include('footer') -%>

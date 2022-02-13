@@ -1,0 +1,37 @@
+<%- include('header') -%>
+
+<div class="container mt-5">
+  
+  <a href="/posts/add"><button type="button" class="btn btn-primary">Add Post</button></a>
+
+  <form class="d-flex mt-5" method="get">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+  
+  <table class="table container mt-5">
+      <thead>
+        <tr>
+          <th scope="col">title</th>
+          <th scope="col">Difficulty</th>
+          <th scope="col">Total Vote</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% posts.forEach(post =>{%>
+              <tr>
+                <th scope="row"><%= post.title %></th>
+                <td><%= post.difficulty %></td>
+                <td><%= post.total_vote %></td>
+                <td>
+                  <a href="/posts/<%= post.id %>"><button type="button" class="btn btn-primary">Read More</button></a>
+                  <a href="/posts/<%= post.id %>/edit"><button type="button" class="btn btn-warning">Edit</button></a>
+                  <a href="/posts/<%= post.id %>/delete"><button type="button" class="btn btn-danger">Delete</button></a>
+                </td>
+              </tr>
+         <% }) %>
+      </tbody>
+    </table>
+</div>
+<%- include('footer') -%>

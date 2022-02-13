@@ -1,0 +1,53 @@
+
+  <%- include('header') -%> 
+
+  <form method="post" action="/posts/add" class="container mt-5">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" name="title" placeholder="" required maxlength="100" oninvalid="this.setCustomValidity('Enter your title Here, max 100char')" oninput="this.setCustomValidity('')"/>
+    </div>
+    <div class="row g-2">
+      <div class="col-md">
+        <div class="form-floating">
+          <select class="form-select" name="authorId" aria-label="Floating label select example">
+            <option selected>Choose..</option>
+            <% data.forEach(author => { %>
+              <option value=<%= author.id %> ><%= author.formatName%></option>
+            <% })%>
+          </select>
+          <label for="authors">Authors</label>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="form-floating">
+          <select class="form-select" name="difficulty" aria-label="Floating label select example">
+            <option selected>Select Difficulty</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+          <label for="authors">Difficulty</label>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="estimatedTime" class="form-label">Estimated Time</label>
+      <input type="number" class="form-control" name="eTime" placeholder="estimated time in minutes" required min="300" oninvalid="this.setCustomValidity('minimum 5 minutes')" oninput="this.setCustomValidity('')">
+    </div>
+    <div class="mb-3">
+      <label for="imageUrl" class="form-label">Image Url</label>
+      <input type="text" class="form-control" name="imgUrl" placeholder="" maxlength="100">
+    </div>
+    <div class="mb-3">
+      <label for="cDate" class="form-label">Created Date</label>
+      <input type="date" class="form-control" name="cDate" placeholder="" max="<%= new Date().toLocaleDateString('en-ca') %>" required oninvalid="this.setCustomValidity('enter created date, max today')" oninput="this.setCustomValidity('')">
+    </div>
+    <div class="mb-3">
+      <label for="desc" class="form-label">Description</label>
+      <textarea type="text" class="form-control" name="desc" placeholder="Description" minlength="20" required oninvalid="this.setCustomValidity('Enter your title Here, min 10 words')"
+      oninput="this.setCustomValidity('')"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">add post</button>
+  </form>
+
+<%- include('footer') -%> 

@@ -1,0 +1,19 @@
+<%- include('header') -%>
+
+<div class="container mt-5">
+    <div class="container d-flex flex-row">
+        <img src=<%= post.imageUrl %> class=" mx-auto " alt="...">
+        <div>
+            <p scope="row"> Estimated Time: <%= post.estimatedDate %> Minutes</p>
+            <p>Difficulty: <%= post.difficulty %></p>
+            <p>Author: <%= post.authorName %></p>
+            <p>Created Date: <%= post.createdDate %></p>
+            <p>Total Vote: <%= post.totalVote %></p>
+            <a href="/posts/<%= post.id %>/vote"><button type="button" class="btn btn-primary">Vote</button></a>
+        </div>
+    </div>
+        
+    <p>Description : <%= post.description %></p>
+              
+
+  </div>

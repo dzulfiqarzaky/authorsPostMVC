@@ -1,0 +1,24 @@
+<%- include('header') -%>
+
+<div class="container mt-5">
+    <a href="/authors/detail"><button type="button" class="btn btn-primary">Show Detail</button></a>
+    
+    <table class="table mt-5">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Author</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% authors.forEach(author =>{%>
+                <tr>
+                  <th scope="row"><%= author.id %></th>
+                  <td><%= author.formatName %></td>
+                </tr>
+           <% }) %>
+        </tbody>
+      </table>
+</div>
+
+<%- include('footer') -%>

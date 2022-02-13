@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "fullName": "Allys Jenner",
+        "gender": "Female"
+    },
+    {
+        "id": 2,
+        "fullName": "Lucho Wastell",
+        "gender": "Male"
+    },
+    {
+        "id": 3,
+        "fullName": "Kimball Heminsley",
+        "gender": "Female"
+    },
+    {
+        "id": 4,
+        "fullName": "Matti Kubes",
+        "gender": "Male"
+    },
+    {
+        "id": 5,
+        "fullName": "Bambie Henner",
+        "gender": "Female"
+    },
+    {
+        "id": 6,
+        "fullName": "Johnnie Pigeon",
+        "gender": "Female"
+    }
+]

@@ -1,0 +1,53 @@
+
+  <%- include('header') -%> 
+
+  <form method="post" action="/posts/<%= data.id %>/edit" class="container mt-5">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" name="title" value="<%= data.title %>" required maxlength="100" oninvalid="this.setCustomValidity('Enter your title Here, max 100char')" oninput="this.setCustomValidity('')">
+    </div>
+    <div class="row g-2">
+      <div class="col-md">
+        <div class="form-floating">
+          <select class="form-select" name="authorId" aria-label="Floating label select example">
+            <option selected value=<%= data.authorId %> ><%= data.authorName %></option>
+            <% authors.forEach(author => { %>
+              <option value=<%= author.id %> ><%= author.fullName %></option>
+            <% })%>
+          </select>
+          <label for="authors">Author</label>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="form-floating">
+          <select class="form-select" name="difficulty" aria-label="Floating label select example">
+            <option selected><%= data.difficulty %></option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+          <label for="difficulty">Difficulty</label>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="estimatedTime" class="form-label">Estimated Time</label>
+      <input type="number" class="form-control" name="eTime" value="<%= data.estimatedDate %>" autocomplete="on" required min="300" oninvalid="this.setCustomValidity('minimum 5 minutes')" oninput="this.setCustomValidity('')">
+    </div>
+    <div class="mb-3">
+      <label for="imageUrl" class="form-label">Image Url</label>
+      <input type="text" class="form-control" name="imgUrl" value="<%= data.imageUrl %>">
+    </div>
+    <div class="mb-3">
+      <label for="cDate" class="form-label">Created Date</label>
+      <input type="date" class="form-control" name="cDate" value="<%= data.formatCreatedDate %>" max="<%= new Date().toLocaleDateString('en-ca') %>" required oninvalid="this.setCustomValidity('enter created date, max today')" oninput="this.setCustomValidity('')">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Description</label>
+      <textarea type="date" class="form-control" name="desc" value="<%= data.description %>" minlength="20" required oninvalid="this.setCustomValidity('Enter your title Here, min 10 words')"
+        oninput="this.setCustomValidity('')"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">edit post</button>
+  </form>
+
+<%- include('footer') -%> 
